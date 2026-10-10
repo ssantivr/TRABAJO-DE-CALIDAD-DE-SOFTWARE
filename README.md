@@ -203,6 +203,7 @@ Los mismos diagramas del documento [UML CASOS DE USO.docx](docs/UML%20CASOS%20DE
 ### Diagrama de casos de uso
 
 ```mermaid
+%%{init: {"themeVariables": {"fontSize": "12px"}, "flowchart": {"nodeSpacing": 18, "rankSpacing": 28, "padding": 8}}}%%
 flowchart LR
     U([Usuario])
     subgraph S["Sistema: Calculadora de enteros"]
@@ -231,6 +232,7 @@ flowchart LR
 ### Diagrama de clases
 
 ```mermaid
+%%{init: {"themeVariables": {"fontSize": "12px"}}}%%
 classDiagram
     direction TB
     class Principal {
@@ -303,6 +305,7 @@ classDiagram
 ### Diagrama de flujo del usuario
 
 ```mermaid
+%%{init: {"themeVariables": {"fontSize": "12px"}, "flowchart": {"nodeSpacing": 18, "rankSpacing": 28, "padding": 8}}}%%
 flowchart TD
     A([Inicio]) --> B["Abrir aplicación<br>(consola o GUI)"]
     B --> C["Introducir número A<br>y número B"]
