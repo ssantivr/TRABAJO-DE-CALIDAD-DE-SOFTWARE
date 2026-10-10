@@ -3,10 +3,28 @@ package com.calculadora;
 /**
  * Calculadora de números enteros (sin estado).
  *
+ * <pre>
+ * UML
+ * +--------------------------------------------------------------+
+ * |                         Calculadora                          |
+ * +--------------------------------------------------------------+
+ * | + DIVISION_POR_CERO : String {static, final}                 |
+ * +--------------------------------------------------------------+
+ * | + sumar(a: int, b: int): int                                 |
+ * | + restar(a: int, b: int): int                                |
+ * | + multiplicar(a: int, b: int): int                           |
+ * | + dividir(a: int, b: int): int                               |
+ * | + potencia(base: int, exponente: int): int (CR-001, v1.1.0)  |
+ * +--------------------------------------------------------------+
+ * </pre>
+ *
  * Política de errores: los métodos nunca devuelven un valor "mágico" al fallar; lanzan
- * {@link ArithmeticException} (división por cero o desbordamiento de int) o
- * {@link IllegalArgumentException} (exponente negativo en {@link #potencia}) para que la
- * consola, mediante {@link Resultado}, muestre un mensaje controlado.
+ * una excepción para que quien llama (consola y GUI, mediante {@link Resultado}) muestre
+ * un mensaje controlado.
+ * <ul>
+ *   <li>{@link ArithmeticException}: división por cero o desbordamiento de int.</li>
+ *   <li>{@link IllegalArgumentException}: exponente negativo en {@link #potencia}.</li>
+ * </ul>
  */
 public final class Calculadora {
 

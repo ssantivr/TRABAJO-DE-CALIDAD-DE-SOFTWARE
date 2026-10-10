@@ -1,6 +1,6 @@
 package com.calculadora;
 
-/** Operaciones del menú de consola, con la etiqueta y el símbolo que ve el usuario. */
+/** Operaciones que ofrecen ambas interfaces, con la etiqueta y el símbolo que ve el usuario. */
 public enum Operacion {
     SUMAR("Sumar", "+"),
     RESTAR("Restar", "-"),
