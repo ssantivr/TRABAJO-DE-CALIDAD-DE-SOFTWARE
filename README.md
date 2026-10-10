@@ -198,25 +198,125 @@ flowchart LR
 
 ## Diagramas UML
 
-Diagramas del documento [UML CASOS DE USO.docx](docs/UML%20CASOS%20DE%20USO.docx), con los nombres del código en español. Sus fuentes en PlantUML están en [`docs/diagramas`](docs/diagramas) y la versión en Mermaid en [01. UML y actores](docs/01_UML_Y_ACTORES.md).
+Los mismos diagramas del documento [UML CASOS DE USO.docx](docs/UML%20CASOS%20DE%20USO.docx), con los nombres del código en español.
 
 ### Diagrama de casos de uso
 
-<p align="center">
-  <img src="docs/img/diagrama-casos-de-uso.png" alt="Diagrama de casos de uso de la calculadora de enteros" width="900">
-</p>
+```mermaid
+flowchart LR
+    U([Usuario])
+    subgraph S["Sistema: Calculadora de enteros"]
+        CU1(["Iniciar calculadora"])
+        CU2(["Elegir interfaz<br>(consola o GUI)"])
+        CU3(["Ingresar dos<br>números enteros"])
+        CU4(["Seleccionar operación<br>(+ − × ÷ potencia)"])
+        CU5(["Limpiar campos<br>(GUI)"])
+        CU6(["Salir"])
+        CU7(["Calcular resultado"])
+        CU8(["Ver resultado o<br>mensaje de error"])
+    end
+    U --> CU1
+    U --> CU2
+    U --> CU3
+    U --> CU4
+    U --> CU5
+    U --> CU6
+    U --> CU7
+    U --> CU8
+    CU3 -. incluye validación .-> CU7
+    CU4 -. incluye .-> CU7
+    CU7 -- produce --> CU8
+```
 
 ### Diagrama de clases
 
-<p align="center">
-  <img src="docs/img/diagrama-clases.png" alt="Diagrama de clases de la calculadora de enteros" width="560">
-</p>
+```mermaid
+classDiagram
+    direction TB
+    class Principal {
+        -Principal()
+        +main(String[] args)$ void
+    }
+    class InterfazConsola {
+        -Operacion[] OPERACIONES$
+        ~ejecutar(Scanner entrada, PrintStream salida)$ void
+        -imprimirMenu(PrintStream salida)$ void
+        -leerEntero(Scanner entrada, PrintStream salida, String mensaje)$ Integer
+    }
+    class VentanaCalculadora {
+        +VentanaCalculadora()
+        +iniciar()$ void
+        -instalarApariencia()$ void
+    }
+    class PanelCalculadora {
+        -Calculadora calculadora
+        -Operacion seleccionada
+        ~JTextField campoPrimero
+        ~JTextField campoSegundo
+        ~JTextArea areaResultado
+        ~calcular() void
+        ~limpiar() void
+    }
+    class Resultado {
+        <<record>>
+        +boolean exito
+        +String mensaje
+        +de(Calculadora calculadora, Operacion operacion, int a, int b)$ Resultado
+        +deTexto(Calculadora calculadora, Operacion operacion, String a, String b)$ Resultado
+    }
+    class Operacion {
+        <<enumeration>>
+        SUMAR
+        RESTAR
+        MULTIPLICAR
+        DIVIDIR
+        POTENCIA
+        +getEtiqueta() String
+        +getSimbolo() String
+        +aplicar(Calculadora calculadora, int a, int b) int
+    }
+    class Calculadora {
+        +String DIVISION_POR_CERO$
+        +sumar(int a, int b) int
+        +restar(int a, int b) int
+        +multiplicar(int a, int b) int
+        +dividir(int a, int b) int
+        +potencia(int base, int exponente) int
+    }
+    class HojaDePruebas {
+        +main(String[] args)$ void
+    }
+    Principal --> InterfazConsola : modo consola
+    Principal --> VentanaCalculadora : modo GUI
+    VentanaCalculadora *-- PanelCalculadora : contiene
+    InterfazConsola --> Resultado : presenta
+    InterfazConsola --> Operacion : usa
+    PanelCalculadora --> Resultado : presenta
+    PanelCalculadora --> Operacion : selecciona
+    PanelCalculadora --> Calculadora : usa
+    Resultado --> Operacion : usa
+    Resultado --> Calculadora : ejecuta mediante
+    Operacion --> Calculadora : invoca
+    HojaDePruebas ..> Calculadora : prueba
+```
 
 ### Diagrama de flujo del usuario
 
-<p align="center">
-  <img src="docs/img/diagrama-flujo-usuario.png" alt="Diagrama de flujo del usuario de la calculadora" width="600">
-</p>
+```mermaid
+flowchart TD
+    A([Inicio]) --> B["Abrir aplicación<br>(consola o GUI)"]
+    B --> C["Introducir número A<br>y número B"]
+    C --> D["Elegir operación<br>Sumar · Restar · Multiplicar<br>Dividir · Potencia"]
+    D --> E{"¿Entradas válidas<br>y operación permitida?"}
+    E -- Sí --> F["Ejecutar cálculo<br>con la clase Calculadora"]
+    E -- No --> G["Mostrar mensaje de error<br>(dato inválido, división por cero,<br>exponente negativo o desbordamiento)"]
+    G -- corregir datos --> C
+    F --> H["Mostrar resultado"]
+    H --> I{"¿Otra operación?"}
+    I -- Sí --> J["Limpiar campos<br>(si usa GUI)"]
+    J --> C
+    I -- No --> K([Fin / Salir])
+```
 
 ## Pruebas
 
