@@ -5,6 +5,8 @@ Aplicación de **consola** (`Scanner` / `System.out`) que recibe dos números en
 ## Estructura
 
 ```
+├── pom.xml                                    # proyecto Maven: lo abren IntelliJ IDEA y VS Code
+├── .vscode/                                   # configuraciones de ejecución para VS Code
 ├── build.sh                                   # compila, prueba, empaqueta (Linux/macOS/Git Bash/WSL)
 ├── README.md
 ├── ANALISIS_ISO25010_Y_UML.md                 # resumen: ISO 25010 y casos de uso (consola)
@@ -36,9 +38,17 @@ Aplicación de **consola** (`Scanner` / `System.out`) que recibe dos números en
 
 ## Requisitos
 
-JDK 17 o superior (`java -version`, `javac -version`). No necesita Maven ni Gradle. Solo las pruebas JUnit y la apariencia FlatLaf (opcional) requieren descargar un `.jar`.
+JDK 17 o superior (`java -version`, `javac -version`). No hace falta instalar Maven: los IDE traen el suyo y, sin IDE, se puede compilar con `javac`. Solo las pruebas JUnit y la apariencia FlatLaf (opcional) requieren descargar un `.jar`.
 
-## Compilar y ejecutar (PowerShell, desde la raíz del proyecto)
+## Abrir en un IDE
+
+El proyecto es un proyecto **Maven** (`pom.xml`), así que el IDE descarga JUnit y reconoce las carpetas de código por sí solo.
+
+- **IntelliJ IDEA:** *File > Open* y elegir la carpeta del proyecto (o el `pom.xml`). Para ejecutar, abrir `Principal.java` y pulsar el triángulo verde junto a `main`; las pruebas se ejecutan igual desde `src/test`.
+- **Visual Studio Code:** instalar el *Extension Pack for Java* (VS Code lo sugiere al abrir la carpeta) y usar *File > Open Folder*. En *Run and Debug* hay tres configuraciones listas: `Calculadora (consola)`, `Calculadora (ventana)` y `Hoja de pruebas (41 casos)`. Las pruebas JUnit aparecen en el panel *Testing*.
+- **Con Maven instalado:** `mvn test` ejecuta las 39 pruebas JUnit y `mvn package` crea `target/calculadora-1.1.0.jar`.
+
+## Compilar y ejecutar sin IDE (PowerShell, desde la raíz del proyecto)
 
 ```powershell
 javac --release 17 -encoding UTF-8 -d build\classes (Get-ChildItem -Recurse src\main -Filter *.java).FullName
