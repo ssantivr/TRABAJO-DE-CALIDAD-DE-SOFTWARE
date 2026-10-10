@@ -1,0 +1,41 @@
+@startuml diagrama-flujo-usuario
+title Diagrama de flujo del usuario · Calculadora
+
+skinparam backgroundColor #F8F9FD
+skinparam shadowing false
+skinparam roundCorner 18
+skinparam defaultFontName Arial
+skinparam titleFontSize 22
+skinparam titleFontColor #1B2A4A
+skinparam ArrowColor #53627C
+skinparam ArrowFontSize 11
+skinparam activity {
+    BorderColor #8FA3C8
+    BorderThickness 1.5
+    BackgroundColor #E8EEFB
+    DiamondBorderColor #8FA3C8
+    DiamondBackgroundColor #FFF1D6
+    FontSize 13
+    StartColor #53627C
+    EndColor #53627C
+}
+
+start
+#E8EEFB:Abrir aplicación
+(consola o GUI);
+repeat
+    repeat
+        #E4F4EE:Introducir número A
+        y número B;
+        #E4F4EE:Elegir operación
+        Sumar · Restar · Multiplicar
+        Dividir · Potencia;
+        backward:Mostrar mensaje de error\n(dato inválido, división por cero,\nexponente negativo o desbordamiento);
+    repeat while (¿Entradas válidas\ny operación permitida?) is (No) not (Sí)
+    #E8EEFB:Ejecutar cálculo
+    con la clase Calculadora;
+    #E4F4EE:Mostrar resultado;
+    backward:Limpiar campos\n(si usa GUI);
+repeat while (¿Otra operación?) is (Sí) not (No)
+stop
+@enduml

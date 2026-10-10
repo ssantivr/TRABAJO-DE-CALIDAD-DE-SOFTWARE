@@ -1,0 +1,53 @@
+@startuml diagrama-casos-de-uso
+!pragma layout smetana
+title Diagrama de casos de uso · Calculadora de enteros
+
+skinparam backgroundColor #F8F9FD
+skinparam shadowing false
+skinparam roundCorner 18
+skinparam defaultFontName Arial
+skinparam titleFontSize 22
+skinparam titleFontColor #1B2A4A
+skinparam ArrowColor #53627C
+skinparam ArrowFontSize 11
+skinparam actor {
+    BorderColor #53627C
+    BackgroundColor #E8EEFB
+}
+skinparam usecase {
+    BorderColor #8FA3C8
+    BorderThickness 1.5
+    FontSize 13
+}
+skinparam rectangle {
+    BorderColor #8FA3C8
+    BackgroundColor #FFFFFF
+    FontSize 15
+    FontColor #1B2A4A
+}
+
+actor Usuario
+
+rectangle "Sistema: Calculadora de enteros" {
+    usecase "Iniciar calculadora" as CU1 #E8EEFB
+    usecase "Elegir interfaz\n(consola o GUI)" as CU2 #E8EEFB
+    usecase "Ingresar dos\nnúmeros enteros" as CU3 #E4F4EE
+    usecase "Seleccionar operación\n(+ − × ÷ potencia)" as CU4 #E4F4EE
+    usecase "Limpiar campos\n(GUI)" as CU5 #E8EEFB
+    usecase "Salir" as CU6 #FDE7E7
+    usecase "Calcular resultado" as CU7 #FFF1D6
+    usecase "Ver resultado o\nmensaje de error" as CU8 #E4F4EE
+}
+
+Usuario --> CU1
+Usuario --> CU2
+Usuario --> CU3
+Usuario --> CU4
+Usuario --> CU5
+Usuario --> CU6
+Usuario --> CU7
+Usuario --> CU8
+CU3 ..> CU7 : incluye validación
+CU4 ..> CU7 : incluye
+CU7 --> CU8 : produce
+@enduml

@@ -1,0 +1,94 @@
+@startuml diagrama-clases
+!pragma layout smetana
+title Diagrama de clases · Calculadora de enteros
+
+skinparam backgroundColor #F8F9FD
+skinparam shadowing false
+skinparam roundCorner 18
+skinparam classAttributeIconSize 0
+skinparam defaultFontName Arial
+skinparam titleFontSize 22
+skinparam titleFontColor #1B2A4A
+skinparam ArrowColor #53627C
+skinparam ArrowFontSize 11
+skinparam class {
+    BorderColor #8FA3C8
+    BorderThickness 1.5
+    FontSize 13
+    AttributeFontSize 12
+}
+hide circle
+
+class Principal #E8EEFB {
+    - Principal()
+    + {static} main(args: String[]): void
+}
+
+class InterfazConsola #E4F4EE {
+    - {static} OPERACIONES: Operacion[]
+    ~ {static} ejecutar(entrada: Scanner, salida: PrintStream): void
+    - {static} imprimirMenu(salida): void
+    - {static} leerEntero(...): Integer
+}
+
+class VentanaCalculadora #E8EEFB {
+    + VentanaCalculadora()
+    + {static} iniciar(): void
+    - {static} instalarApariencia(): void
+}
+
+class PanelCalculadora #E4F4EE {
+    - calculadora: Calculadora
+    - seleccionada: Operacion
+    ~ campoPrimero: JTextField
+    ~ campoSegundo: JTextField
+    ~ areaResultado: JTextArea
+    ~ calcular(): void
+    ~ limpiar(): void
+}
+
+class Resultado <<record>> #F0E6FF {
+    + exito: boolean
+    + mensaje: String
+    + {static} de(calculadora, operacion, a, b): Resultado
+    + {static} deTexto(calculadora, operacion, a, b): Resultado
+}
+
+enum Operacion <<enumeration>> #F0E6FF {
+    SUMAR · Sumar (+)
+    RESTAR · Restar (-)
+    MULTIPLICAR · Multiplicar (*)
+    DIVIDIR · Dividir (/)
+    POTENCIA · Potencia (^)
+    --
+    + getEtiqueta(): String
+    + getSimbolo(): String
+    + aplicar(calculadora, a, b): int
+}
+
+class Calculadora #FFF1D6 {
+    + {static} DIVISION_POR_CERO: String
+    + sumar(a: int, b: int): int
+    + restar(a: int, b: int): int
+    + multiplicar(a: int, b: int): int
+    + dividir(a: int, b: int): int
+    + potencia(base: int, exponente: int): int
+}
+
+class HojaDePruebas #FDE7E7 {
+    + {static} main(args: String[]): void
+}
+
+Principal --> InterfazConsola : modo consola
+Principal --> VentanaCalculadora : modo GUI
+VentanaCalculadora *-- PanelCalculadora : contiene
+InterfazConsola --> Resultado : presenta
+InterfazConsola --> Operacion : usa
+PanelCalculadora --> Resultado : presenta
+PanelCalculadora --> Operacion : selecciona
+PanelCalculadora --> Calculadora : usa
+Resultado --> Operacion : usa
+Resultado --> Calculadora : ejecuta mediante
+Operacion --> Calculadora : invoca
+HojaDePruebas ..> Calculadora : prueba
+@enduml

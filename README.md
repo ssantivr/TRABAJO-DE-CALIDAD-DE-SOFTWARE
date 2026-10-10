@@ -198,12 +198,12 @@ flowchart LR
 
 ## Diagramas UML
 
-Diagramas del documento [UML CASOS DE USO.docx](docs/UML%20CASOS%20DE%20USO.docx). La versión en texto (Mermaid) está en [01. UML y actores](docs/01_UML_Y_ACTORES.md).
+Diagramas del documento [UML CASOS DE USO.docx](docs/UML%20CASOS%20DE%20USO.docx), con los nombres del código en español. Sus fuentes en PlantUML están en [`docs/diagramas`](docs/diagramas) y la versión en Mermaid en [01. UML y actores](docs/01_UML_Y_ACTORES.md).
 
 ### Diagrama de casos de uso
 
 <p align="center">
-  <img src="docs/img/diagrama-casos-de-uso.png" alt="Diagrama de casos de uso de la calculadora de enteros" width="760">
+  <img src="docs/img/diagrama-casos-de-uso.png" alt="Diagrama de casos de uso de la calculadora de enteros" width="900">
 </p>
 
 ### Diagrama de clases
@@ -212,13 +212,10 @@ Diagramas del documento [UML CASOS DE USO.docx](docs/UML%20CASOS%20DE%20USO.docx
   <img src="docs/img/diagrama-clases.png" alt="Diagrama de clases de la calculadora de enteros" width="560">
 </p>
 
-> [!NOTE]
-> El diagrama de clases y el de flujo usan los nombres de la primera versión del código, en inglés. Equivalencias con el código actual: `Main` = `Principal`, `ConsoleUI` = `InterfazConsola`, `CalculatorFrame` = `VentanaCalculadora`, `CalculatorPanel` = `PanelCalculadora`, `Outcome` = `Resultado`, `Operation` = `Operacion`, `Calculator` = `Calculadora` y `CalculatorTest` = `HojaDePruebas`.
-
 ### Diagrama de flujo del usuario
 
 <p align="center">
-  <img src="docs/img/diagrama-flujo-usuario.png" alt="Diagrama de flujo del usuario de la calculadora" width="560">
+  <img src="docs/img/diagrama-flujo-usuario.png" alt="Diagrama de flujo del usuario de la calculadora" width="600">
 </p>
 
 ## Pruebas
