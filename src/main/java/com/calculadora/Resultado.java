@@ -14,6 +14,8 @@ public record Resultado(boolean exito, String mensaje) {
             return new Resultado(false, Calculadora.DIVISION_POR_CERO.equals(e.getMessage())
                     ? "Error: no se puede dividir entre cero."
                     : "Error: el resultado excede el rango de los enteros (int).");
+        } catch (IllegalArgumentException e) {
+            return new Resultado(false, "Error: el exponente no puede ser negativo (el resultado no es un entero).");
         }
     }
 }

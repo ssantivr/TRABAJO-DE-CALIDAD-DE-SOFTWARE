@@ -5,7 +5,8 @@ public enum Operacion {
     SUMAR("Sumar", "+"),
     RESTAR("Restar", "-"),
     MULTIPLICAR("Multiplicar", "*"),
-    DIVIDIR("Dividir", "/");
+    DIVIDIR("Dividir", "/"),
+    POTENCIA("Potencia", "^");
 
     private final String etiqueta;
     private final String simbolo;
@@ -30,6 +31,7 @@ public enum Operacion {
             case RESTAR -> calculadora.restar(a, b);
             case MULTIPLICAR -> calculadora.multiplicar(a, b);
             case DIVIDIR -> calculadora.dividir(a, b);
+            case POTENCIA -> calculadora.potencia(a, b);
         };
     }
 }
