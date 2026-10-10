@@ -235,13 +235,13 @@ classDiagram
     direction TB
     class Principal {
         -Principal()
-        +main(String[] args)$ void
+        +main(args)$ void
     }
     class InterfazConsola {
         -Operacion[] OPERACIONES$
-        ~ejecutar(Scanner entrada, PrintStream salida)$ void
-        -imprimirMenu(PrintStream salida)$ void
-        -leerEntero(Scanner entrada, PrintStream salida, String mensaje)$ Integer
+        ~ejecutar(entrada, salida)$ void
+        -imprimirMenu(salida)$ void
+        -leerEntero(...)$ Integer
     }
     class VentanaCalculadora {
         +VentanaCalculadora()
@@ -261,8 +261,8 @@ classDiagram
         <<record>>
         +boolean exito
         +String mensaje
-        +de(Calculadora calculadora, Operacion operacion, int a, int b)$ Resultado
-        +deTexto(Calculadora calculadora, Operacion operacion, String a, String b)$ Resultado
+        +de(calculadora, operacion, a, b)$ Resultado
+        +deTexto(calculadora, operacion, a, b)$ Resultado
     }
     class Operacion {
         <<enumeration>>
@@ -273,7 +273,7 @@ classDiagram
         POTENCIA
         +getEtiqueta() String
         +getSimbolo() String
-        +aplicar(Calculadora calculadora, int a, int b) int
+        +aplicar(calculadora, a, b) int
     }
     class Calculadora {
         +String DIVISION_POR_CERO$
@@ -284,7 +284,7 @@ classDiagram
         +potencia(int base, int exponente) int
     }
     class HojaDePruebas {
-        +main(String[] args)$ void
+        +main(args)$ void
     }
     Principal --> InterfazConsola : modo consola
     Principal --> VentanaCalculadora : modo GUI
