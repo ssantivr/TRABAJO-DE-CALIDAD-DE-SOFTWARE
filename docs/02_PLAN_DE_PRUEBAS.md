@@ -1,6 +1,6 @@
 # 2. Plan de pruebas unitarias (formato hoja de Excel)
 
-La misma tabla está en `docs/pruebas_unitarias.xlsx` (Excel; la columna Estado es una fórmula) y en `docs/resultados_pruebas.csv`.
+La misma tabla está en `docs/pruebas_unitarias.xlsx` (Excel; la columna Estado es una fórmula) y en `docs/resultados_pruebas.md`.
 **"Resultado Obtenido" y "Estado" salen de ejecutar `HojaDePruebas`** (`./build.sh probar`); no se llenaron a mano.
 
 **Convenciones**

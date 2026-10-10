@@ -33,7 +33,7 @@ Aplicación de **consola** (`Scanner` / `System.out`) que recibe dos números en
     ├── 04_GESTION_DE_CAMBIOS.md               # comunicado formal al cliente (CR-001)
     ├── 05_DIAGNOSTICO_DE_FALLOS.md            # cómo funciona el diagnóstico + demo con fallos reales
     ├── diagnostico_fallos.md                  # informe de la última ejecución (lo genera HojaDePruebas)
-    └── resultados_pruebas.csv / .md           # los genera HojaDePruebas
+    └── resultados_pruebas.md                  # lo genera HojaDePruebas
 ```
 
 ## Requisitos
@@ -70,7 +70,7 @@ java "-Dfile.encoding=UTF-8" -jar junit.jar execute -cp "build\classes;build\tes
 
 ## Hoja de pruebas y diagnóstico de fallos
 
-`HojaDePruebas` ejecuta los 41 casos de la hoja de Excel (unitarios, consola y GUI sin pantalla) sin necesidad de JUnit y vuelve a generar `docs/resultados_pruebas.csv`, `docs/resultados_pruebas.md` y `docs/diagnostico_fallos.md`:
+`HojaDePruebas` ejecuta los 41 casos de la hoja de Excel (unitarios, consola y GUI sin pantalla) sin necesidad de JUnit y vuelve a generar `docs/resultados_pruebas.md` y `docs/diagnostico_fallos.md`:
 
 ```powershell
 javac --release 17 -encoding UTF-8 -cp build\classes -d build\hoja-classes (Get-ChildItem -Recurse src\hoja-pruebas -Filter *.java).FullName

@@ -22,6 +22,6 @@ Contexto: aplicación de escritorio (consola y ventana Swing), un solo proceso, 
 
 ## 3.3 Qué queda evidenciado hoy
 
-- Adecuación funcional: **41/41 casos pasan** (`docs/resultados_pruebas.csv`), con las 5 operaciones implementadas.
+- Adecuación funcional: **41/41 casos pasan** (`docs/resultados_pruebas.md`), con las 5 operaciones implementadas.
 - Fiabilidad: los casos de desbordamiento, división por cero, exponente negativo y entrada no numérica pasan.
 - Usabilidad, cobertura JaCoCo, Checkstyle/PMD y fuzzing: **definidos pero no ejecutados todavía**; son las siguientes verificaciones a realizar antes de la entrega formal.

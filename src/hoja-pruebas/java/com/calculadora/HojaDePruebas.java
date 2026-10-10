@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 /**
  * Ejecutor de pruebas sin dependencias (no necesita JUnit, así que compila sin internet).
  * Ejecuta todos los casos (Calculadora, consola y GUI sin pantalla), imprime un resumen
- * y escribe la hoja de pruebas en CSV (se abre en Excel) y Markdown en el directorio
+ * y escribe la hoja de pruebas en Markdown en el directorio
  * de salida (por defecto "docs"). Código de salida 1 si algún caso falla.
  */
 public final class HojaDePruebas {
@@ -154,9 +154,6 @@ public final class HojaDePruebas {
         Path directorioSalida = Path.of(args.length > 0 ? args[0] : "docs");
         definirCasos();
 
-        StringBuilder csv = new StringBuilder("﻿");
-        csv.append("Caso de Prueba,Descripción / Lo que teníamos planeado hacer,\"Entradas (a, b)\","
-                + "Operación,Resultado Esperado,Resultado Obtenido,Estado\n");
         StringBuilder md = new StringBuilder();
         md.append("| Caso de Prueba | Descripción / Lo que teníamos planeado hacer | Entradas (a, b) | Operación "
                 + "| Resultado Esperado | Resultado Obtenido | Estado |\n");
@@ -182,15 +179,11 @@ public final class HojaDePruebas {
                 System.out.println(informe);
                 diagnostico.append(informe).append('\n');
             }
-            csv.append(String.join(",", comillas(caso.id()), comillas(caso.descripcion()), comillas(caso.entradas()),
-                    comillas(caso.operacion()), comillas(caso.esperado()), comillas(obtenido), comillas(estado)))
-                    .append('\n');
             md.append("| ").append(String.join(" | ", caso.id(), caso.descripcion(), "`" + caso.entradas() + "`",
                     caso.operacion(), "`" + caso.esperado() + "`", "`" + obtenido + "`", estado)).append(" |\n");
         }
 
         Files.createDirectories(directorioSalida);
-        Files.writeString(directorioSalida.resolve("resultados_pruebas.csv"), csv, StandardCharsets.UTF_8);
         Files.writeString(directorioSalida.resolve("resultados_pruebas.md"), md, StandardCharsets.UTF_8);
         Files.writeString(directorioSalida.resolve("diagnostico_fallos.md"), "# Diagnóstico de fallos\n\n"
                 + (diagnostico.length() == 0 ? "Última ejecución sin fallos: no hay nada que diagnosticar.\n" : diagnostico),
@@ -201,7 +194,4 @@ public final class HojaDePruebas {
         System.exit(aprobados == total ? 0 : 1);
     }
 
-    private static String comillas(String s) {
-        return "\"" + s.replace("\"", "\"\"") + "\"";
-    }
 }
