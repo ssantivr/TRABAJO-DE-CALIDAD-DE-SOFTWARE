@@ -2,6 +2,8 @@
 
 Contexto: aplicación de consola en Java, un solo proceso, sin red, sin base de datos, sin autenticación y sin datos persistentes. Recibe dos enteros y calcula suma, resta, multiplicación, división y potencia.
 
+Este documento es el resumen centrado en la consola, que es la interfaz que pide el enunciado. La ventana Swing opcional (`--gui`) y el detalle completo están en `docs/01_UML_Y_ACTORES.md` y `docs/03_CALIDAD_ISO_25010.md`.
+
 ## 1. Calidad según ISO/IEC 25010
 
 ### 1.1 Dimensiones que aplican
