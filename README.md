@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧮 Calculadora de enteros en Java
+# Calculadora de enteros en Java
 
 ### Trabajo de Calidad de Software
 
@@ -20,20 +20,20 @@ y gestión formal de cambios.
 
 <br>
 
-[Descripción](#-descripción) •
-[Características](#-características) •
-[Inicio rápido](#-inicio-rápido) •
-[Demostración](#-demostración) •
-[Arquitectura](#-arquitectura) •
-[Pruebas](#-pruebas) •
-[Calidad](#-calidad-isoiec-25010) •
-[Documentación](#-documentación)
+[Descripción](#descripción) •
+[Características](#características) •
+[Inicio rápido](#inicio-rápido) •
+[Demostración](#demostración) •
+[Arquitectura](#arquitectura) •
+[Pruebas](#pruebas) •
+[Calidad](#calidad-isoiec-25010) •
+[Documentación](#documentación)
 
 </div>
 
 ---
 
-## 📌 Descripción
+## Descripción
 
 Calculadora que recibe **dos números enteros por consola** y ejecuta cinco operaciones aritméticas: suma, resta, multiplicación, división y potencia. Toda la lectura y escritura se realiza con `Scanner` y `System.out`.
 
@@ -41,24 +41,24 @@ El proyecto recorre el ciclo completo que exige la asignatura:
 
 | Etapa | Entregable |
 |---|---|
-| 🛠️ **Implementación** | Cinco operaciones en métodos independientes, con validación de datos. |
-| 🧪 **Pruebas** | 39 pruebas unitarias con JUnit 5 y una hoja de pruebas de 41 casos. |
-| 📐 **Modelado** | Actores, casos de uso, diagrama de clases y de secuencia en UML. |
-| ✅ **Calidad** | Evaluación según las características de la norma ISO/IEC 25010. |
-| 🔄 **Gestión de cambios** | Solicitud de cambio **CR-001**: incorporación de la operación de potencia. |
+| **Implementación** | Cinco operaciones en métodos independientes, con validación de datos. |
+| **Pruebas** | 39 pruebas unitarias con JUnit 5 y una hoja de pruebas de 41 casos. |
+| **Modelado** | Actores, casos de uso, diagrama de clases y de secuencia en UML. |
+| **Calidad** | Evaluación según las características de la norma ISO/IEC 25010. |
+| **Gestión de cambios** | Solicitud de cambio **CR-001**: incorporación de la operación de potencia. |
 
-## ✨ Características
+## Características
 
-| | Característica | Detalle |
-|:-:|---|---|
-| ➕ | **Cinco operaciones** | `sumar`, `restar`, `multiplicar`, `dividir` y `potencia`, cada una en su propio método. |
-| 🔢 | **Solo números enteros** | Ante un dato inválido se informa el error y se vuelve a solicitar. |
-| 🚫 | **División por cero controlada** | Muestra un mensaje claro y el programa continúa en ejecución. |
-| 🔁 | **Potencia con ciclo `for`** | Implementada sin `Math.pow`, con control de exponente negativo. |
-| 🛡️ | **Detección de desbordamiento** | Si el resultado no cabe en un `int`, se informa un error en lugar de un valor incorrecto. |
-| 🖥️ | **Interfaz gráfica opcional** | Ventana Swing con `--gui`, que comparte la lógica y los mensajes de la consola. |
+| Característica | Detalle |
+|---|---|
+| **Cinco operaciones** | `sumar`, `restar`, `multiplicar`, `dividir` y `potencia`, cada una en su propio método. |
+| **Solo números enteros** | Ante un dato inválido se informa el error y se vuelve a solicitar. |
+| **División por cero controlada** | Muestra un mensaje claro y el programa continúa en ejecución. |
+| **Potencia con ciclo `for`** | Implementada sin `Math.pow`, con control de exponente negativo. |
+| **Detección de desbordamiento** | Si el resultado no cabe en un `int`, se informa un error en lugar de un valor incorrecto. |
+| **Interfaz gráfica opcional** | Ventana Swing con `--gui`, que comparte la lógica y los mensajes de la consola. |
 
-## 🚀 Inicio rápido
+## Inicio rápido
 
 > [!IMPORTANT]
 > Se necesita **JDK 17 o superior**. No hace falta instalar Maven: IntelliJ IDEA y Visual Studio Code ya lo incluyen.
@@ -73,7 +73,7 @@ El proyecto recorre el ciclo completo que exige la asignatura:
 
 1. <kbd>File</kbd> › <kbd>Open</kbd> y elegir la carpeta del proyecto.
 2. Abrir `Principal.java`.
-3. Pulsar ▶ junto al método `main`.
+3. Pulsar el botón de ejecutar junto al método `main`.
 
 </td>
 <td valign="top">
@@ -114,7 +114,7 @@ java -cp build\classes com.calculadora.Principal --gui    # ventana
 
 </details>
 
-## 🎬 Demostración
+## Demostración
 
 ```text
 === Calculadora de números enteros ===
@@ -140,13 +140,13 @@ Errores controlados:
 | Exponente negativo | `2 ^ -1` | `Error: el exponente no puede ser negativo (el resultado no es un entero).` |
 | Resultado fuera de rango | `2 ^ 31` | `Error: el resultado excede el rango de los enteros (int).` |
 
-## 🧩 Arquitectura
+## Arquitectura
 
 La consola y la ventana no contienen lógica de cálculo: ambas delegan en `Resultado`, que ejecuta la operación y convierte cualquier error en un mensaje para el usuario.
 
 ```mermaid
 flowchart LR
-    U([👤 Usuario]) --> P[Principal]
+    U([Usuario]) --> P[Principal]
     P -->|por defecto| IC[InterfazConsola]
     P -->|--gui| V[VentanaCalculadora<br>PanelCalculadora]
     IC --> R[Resultado]
@@ -195,7 +195,7 @@ flowchart LR
 
 </details>
 
-## 🧪 Pruebas
+## Pruebas
 
 | Conjunto | Ubicación | Casos | Alcance |
 |---|---|:-:|---|
@@ -255,7 +255,7 @@ java "-Dfile.encoding=UTF-8" "-Dstdout.encoding=UTF-8" -cp "build\classes;build\
 
 </details>
 
-### 🔍 Diagnóstico automático de fallos
+### Diagnóstico automático de fallos
 
 Cuando un caso de la hoja de pruebas falla, el informe indica tres cosas:
 
@@ -267,36 +267,36 @@ Cuando un caso de la hoja de pruebas falla, el informe indica tres cosas:
 
 La demostración con seis defectos introducidos a propósito está en [05. Diagnóstico de fallos](docs/05_DIAGNOSTICO_DE_FALLOS.md).
 
-## ✅ Calidad ISO/IEC 25010
+## Calidad ISO/IEC 25010
 
 | Característica | ¿Se evalúa? | Motivo |
 |---|:-:|---|
-| **Adecuación funcional** | ✅ | El valor del producto es que las cinco operaciones den el resultado correcto. |
-| **Fiabilidad** | ✅ | División por cero, desbordamiento y datos inválidos no deben detener el programa. |
-| **Usabilidad** | ✅ | Toda la interacción es por consola: los mensajes deben ser claros. |
-| **Mantenibilidad** | ✅ | El proyecto ya recibió un cambio de alcance (la potencia). |
-| **Seguridad** | ➖ | No hay red, usuarios ni datos persistentes. |
-| **Compatibilidad** | ➖ | No intercambia información con otros sistemas. |
-| **Portabilidad** | ➖ | Corre en cualquier JVM 17 o superior. |
-| **Eficiencia de desempeño** | ➖ | Cálculos triviales; no justifica pruebas de carga. |
+| **Adecuación funcional** | Sí | El valor del producto es que las cinco operaciones den el resultado correcto. |
+| **Fiabilidad** | Sí | División por cero, desbordamiento y datos inválidos no deben detener el programa. |
+| **Usabilidad** | Sí | Toda la interacción es por consola: los mensajes deben ser claros. |
+| **Mantenibilidad** | Sí | El proyecto ya recibió un cambio de alcance (la potencia). |
+| **Seguridad** | No | No hay red, usuarios ni datos persistentes. |
+| **Compatibilidad** | No | No intercambia información con otros sistemas. |
+| **Portabilidad** | No | Corre en cualquier JVM 17 o superior. |
+| **Eficiencia de desempeño** | No | Cálculos triviales; no justifica pruebas de carga. |
 
 El análisis completo, con métricas y pruebas asociadas, está en [03. Calidad ISO/IEC 25010](docs/03_CALIDAD_ISO_25010.md).
 
-## 📚 Documentación
+## Documentación
 
 | Documento | Contenido |
 |---|---|
-| 📄 [Análisis ISO 25010 y casos de uso](ANALISIS_ISO25010_Y_UML.md) | Resumen de las dimensiones de calidad y especificación de los casos de uso. |
-| 📐 [01. UML y actores](docs/01_UML_Y_ACTORES.md) | Actores, casos de uso, diagrama de clases y diagrama de secuencia. |
-| 📐 [Diagrama UML de casos de uso](docs/UML%20CASOS%20DE%20USO.docx) | Diagrama de casos de uso en formato Word. |
-| 🧪 [02. Plan de pruebas](docs/02_PLAN_DE_PRUEBAS.md) | Convenciones y tabla de los 41 casos con sus resultados. |
-| 📊 [Hoja de pruebas unitarias](docs/pruebas_unitarias.xlsx) | Hoja de Excel con el resultado esperado, el obtenido y el estado de cada caso. |
-| ✅ [03. Calidad ISO/IEC 25010](docs/03_CALIDAD_ISO_25010.md) | Características evaluadas, métricas y justificación de las descartadas. |
-| 🔄 [04. Gestión de cambios](docs/04_GESTION_DE_CAMBIOS.md) | Comunicado formal al cliente sobre la solicitud de cambio CR-001. |
-| 🔍 [05. Diagnóstico de fallos](docs/05_DIAGNOSTICO_DE_FALLOS.md) | Funcionamiento del módulo de diagnóstico y demostración con seis defectos. |
-| 📋 [Resultados de la última ejecución](docs/resultados_pruebas.md) | Tabla generada por `HojaDePruebas`. |
+| [Análisis ISO 25010 y casos de uso](ANALISIS_ISO25010_Y_UML.md) | Resumen de las dimensiones de calidad y especificación de los casos de uso. |
+| [01. UML y actores](docs/01_UML_Y_ACTORES.md) | Actores, casos de uso, diagrama de clases y diagrama de secuencia. |
+| [Diagrama UML de casos de uso](docs/UML%20CASOS%20DE%20USO.docx) | Diagrama de casos de uso en formato Word. |
+| [02. Plan de pruebas](docs/02_PLAN_DE_PRUEBAS.md) | Convenciones y tabla de los 41 casos con sus resultados. |
+| [Hoja de pruebas unitarias](docs/pruebas_unitarias.xlsx) | Hoja de Excel con el resultado esperado, el obtenido y el estado de cada caso. |
+| [03. Calidad ISO/IEC 25010](docs/03_CALIDAD_ISO_25010.md) | Características evaluadas, métricas y justificación de las descartadas. |
+| [04. Gestión de cambios](docs/04_GESTION_DE_CAMBIOS.md) | Comunicado formal al cliente sobre la solicitud de cambio CR-001. |
+| [05. Diagnóstico de fallos](docs/05_DIAGNOSTICO_DE_FALLOS.md) | Funcionamiento del módulo de diagnóstico y demostración con seis defectos. |
+| [Resultados de la última ejecución](docs/resultados_pruebas.md) | Tabla generada por `HojaDePruebas`. |
 
-## 🧠 Decisiones de diseño
+## Decisiones de diseño
 
 | Tema | Decisión |
 |---|---|
@@ -313,7 +313,7 @@ El análisis completo, con métricas y pruebas asociadas, está en [03. Calidad 
 
 <div align="center">
 
-### 👨‍💻 Autor
+### Autor
 
 **Santiago Rosero**
 
