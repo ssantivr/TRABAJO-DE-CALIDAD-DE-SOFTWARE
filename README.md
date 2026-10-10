@@ -118,7 +118,7 @@ java -cp build\classes com.calculadora.Principal --gui    # ventana
 ## Demostración
 
 ```text
-=== Calculadora de números enteros ===
+Calculadora de números enteros 
 
 1. Sumar
 2. Restar
