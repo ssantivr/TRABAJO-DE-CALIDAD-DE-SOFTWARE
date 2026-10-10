@@ -1,4 +1,4 @@
-# Trabajo de Calidad de Software: calculadora de enteros en Java (v1.1.0)
+# Trabajo de Calidad de Software: calculadora de enteros en Java 
 
 Aplicación de **consola** (`Scanner` / `System.out`) que recibe dos números enteros y calcula suma, resta, multiplicación, división y potencia, con validación de datos y manejo explícito de la división por cero. Incluye además una ventana Swing opcional (`--gui`). Código, mensajes y documentación en español.
 
@@ -107,7 +107,4 @@ Si un caso falla, imprime **(1)** la ubicación exacta (archivo, clase, método,
 | Sin duplicar lógica | La consola y la GUI usan la misma enumeración `Operacion` y los mismos mensajes de `Resultado`. |
 | FlatLaf opcional | Se carga por nombre en tiempo de ejecución: no hay dependencia de compilación; sin el `.jar` se usa Nimbus. |
 
-## Control de versiones del cambio
 
-- **v1.0.0**: línea base (cuatro operaciones), commit `feat: agregar métodos aritméticos básicos y manejo de errores`.
-- **v1.1.0**: añade `potencia` (solicitud de cambio **CR-001**, ver `docs/04_GESTION_DE_CAMBIOS.md`), commit `feat: agregar operación de potencia usando ciclo for (gestión de cambio)`.
