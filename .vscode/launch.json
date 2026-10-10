@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Calculadora (consola)",
+            "request": "launch",
+            "mainClass": "com.calculadora.Principal",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "Calculadora (ventana)",
+            "request": "launch",
+            "mainClass": "com.calculadora.Principal",
+            "args": "--gui"
+        },
+        {
+            "type": "java",
+            "name": "Hoja de pruebas (41 casos)",
+            "request": "launch",
+            "mainClass": "com.calculadora.HojaDePruebas",
+            "args": "docs",
+            "console": "integratedTerminal"
+        }
+    ]
+}
